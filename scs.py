@@ -84,6 +84,55 @@ class FileStorage:
         logging.info('Removing folder %r', self.expanded_folder)
         os.rmdir(self.expanded_folder)
 
+class SftpStorage:
+
+    '''SFTP storage for Scs'''
+
+    def __init__(self, host, folder):
+        # TODO
+        self.host = host
+        self.folder = folder
+
+    def _path(self, filename):
+        # TODO
+        assert re.match('^[0-9a-z.-]+$', filename)
+        return os.path.join(self.folder, filename)
+
+    def filenames(self):
+        '''Retrieve set of all filenames'''
+        # TODO
+        pass
+
+    def exists(self, filename):
+        '''Check if file exists'''
+        # TODO
+        pass
+
+    def read(self, filename):
+        '''Read all data from file'''
+        # TODO
+        pass
+
+    def create(self, filename, data):
+        '''Create file and write data into it, overwrite possibly existing file'''
+        # TODO
+        pass
+
+    def rename(self, old_filename, new_filename):
+        '''Rename existing file in an atomic way, overwrite possibly existing file'''
+        # TODO
+        pass
+
+    def remove(self, filename):
+        '''Remove file in an atomic way'''
+        # TODO
+        pass
+
+    def rmdir(self):
+        '''Remove storage folder, assuming the folder to be empty'''
+        # TODO
+        pass
+
 class Scs:
 
     '''Simple content-addressed store'''
