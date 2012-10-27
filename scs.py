@@ -68,7 +68,7 @@ class FileStorage:
 
     def create(self, filename, data):
         '''Create file and write data into it, overwrite possibly existing file'''
-        with open(self._path(filename), 'ab') as f:
+        with open(self._path(filename), 'wb') as f:
             f.write(data)
 
     def rename(self, old_filename, new_filename):
